@@ -1,0 +1,105 @@
+body {
+  background-color: #eee;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #fbbc04;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3); 
+  padding: 20px 35px;
+}
+
+.title {
+  color: #fff;
+  margin: 0 auto;
+  font-size: 2rem;
+}
+
+.input-box {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4); 
+  padding: 5px 20px;
+  margin: 35px auto;
+  width: 500px;
+}
+
+.input-box input, .input-box textarea {
+  border: none;
+  outline: none;
+  padding: 8px 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.2rem;
+  resize: none;
+}
+
+.custom-button {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+  padding: 10px 30px;
+  position: relative;
+}
+
+.custom-button:hover {
+  background-color: #d3d3d3;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.submit-button {
+  left: 400px;
+}
+
+.notes-container {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px 32px 0;
+}
+
+.note-box {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin: 10px;
+  width: 275px;
+  border-radius: 7px;
+  padding: 15px 15px 5px;
+}
+
+.note-title {
+  margin: 0 auto;
+}
+
+.note-desc {
+  word-wrap: break-word;
+}
+
+.delete-button {
+  left: 175px;
+}
+
+@media (max-width: 576px) {
+  .input-box {
+    width: 250px;
+  }
+
+  .submit-button {
+    left: 150px;
+  }
+
+  .note-box {
+    flex-basis: 325px;
+  }
+  
+  .delete-button {
+    left: 225px;
+  }
+}
