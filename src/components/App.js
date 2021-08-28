@@ -4,10 +4,7 @@ import InputArea from "./InputArea";
 import Note from "./Note";
 
 function App() {
-  const [notes, setNotes] = useState([{
-    title: "Title",
-    desc: "Test"
-  }]);
+  const [notes, setNotes] = useState([]);
 
   function addNote(note) {
     setNotes([...notes, note]);
