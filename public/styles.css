@@ -27,21 +27,33 @@ body {
   display: flex;
   flex-direction: column;
   margin: 35px auto;
-  padding: 5px 20px;
+  padding: 5px 10px 5px 20px;
   width: 500px;
 }
 
 .input-box input, .input-box textarea {
   border: none;
   font-family: inherit;
+  font-size: 1.2rem;
   outline: none;
   padding: 8px 0;
   resize: none;
-  width: 100%;
 }
 
 .input-box input {
-  font-size: 1.2rem;
+  width: 450px; 
+}
+
+.pin-icon {
+  padding: 10px;
+  color: gray;
+}
+
+.pin-icon:hover {
+  background-color: #feefc3;
+  border-radius: 10px;
+  color: #fbbc04;
+  transition: background-color 0.15s ease-in-out;
 }
 
 .button-container {
@@ -68,8 +80,7 @@ body {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  justify-content: center;
-  padding: 30px 32px 0;
+  padding: 0 32px;
 }
 
 .note-box {
@@ -82,6 +93,14 @@ body {
   padding: 15px 15px 5px;
   width: 275px;
   word-wrap: break-word;
+}
+
+.note-category {
+  color: gray;
+  font-weight: 500;
+  margin: 0;
+  padding: 30px 15px 0;
+  width: 100%;
 }
 
 .note-title {
@@ -101,7 +120,20 @@ body {
     width: 250px;
   }
 
+  .input-box input {
+    width: 210px;
+  }
+
+  .notes-container {
+    padding: 0 10px;
+    justify-content: center;
+  }
+
   .note-box {
     width: 325px;
+  }
+
+  .note-category {
+    text-align: center;
   }
 }
