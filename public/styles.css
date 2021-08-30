@@ -56,8 +56,11 @@ body {
   transition: background-color 0.15s ease-in-out;
 }
 
-.button-container {
+.input-buttons {
   align-self: flex-end;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .custom-button {
@@ -68,12 +71,25 @@ body {
   font-weight: 700;
   position: relative;
   padding: 10px 0;
+  margin-bottom: 5px;
   width: 100px;
 }
 
 .custom-button:hover {
   background-color: #d3d3d3;
   transition: background-color 0.15s ease-in-out;
+}
+
+.palette-container {
+  position: relative;
+  top: -2px;
+  margin-right: 15px;
+  padding: 5px 5px 0;
+}
+
+.palette-container:hover {
+  background-color: #ccc;
+  cursor: pointer;
 }
 
 .notes-container {
@@ -122,6 +138,10 @@ body {
 
   .input-box input {
     width: 210px;
+  }
+
+  .custom-button {
+    font-size: 0.8rem;
   }
 
   .notes-container {

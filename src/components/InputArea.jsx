@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PaletteIcon from '@material-ui/icons/Palette';
 
 export default function InputArea(props) {
   const [userInput, setUserInput] = useState({
@@ -71,7 +72,8 @@ export default function InputArea(props) {
           style={areaIsClicked ? { fontSize: '1rem', fontFamily: 'Arial, sans-serif' } : null}
           rows={areaIsClicked ? '3' : '1'}
         />
-        <div className="button-container">
+        <div className="input-buttons">
+          {areaIsClicked && <span className="palette-container"><PaletteIcon/></span>}
           {areaIsClicked && <button onClick={submitNote} className="custom-button">Submit</button>}
           {areaIsClicked && <button onClick={closeArea} className="custom-button">Close</button>}
         </div>

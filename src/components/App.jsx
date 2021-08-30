@@ -4,23 +4,29 @@ import InputArea from './InputArea';
 import Note from './Note';
 
 function App() {
-  const [notes, setNotes] = useState([]);
-  const [pinnedNotes, setPinnedNotes] = useState([]);
+  checkLocalStorage();
+
+  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes")));
+  const [pinnedNotes, setPinnedNotes] = useState(JSON.parse(localStorage.getItem("pinnedNotes")));
 
   function addNote(note) {
     setNotes([...notes, note]);
+    addStorageNote("notes", note);
   }
 
   function deleteNote(noteIndex) {
     setNotes(notes.filter((note, index) => index !== noteIndex));
+    deleteStorageNote("notes", noteIndex);
   }
 
   function addPinnedNote(note) {
     setPinnedNotes([...pinnedNotes, note]);
+    addStorageNote("pinnedNotes", note);
   }
 
   function deletePinnedNote(noteIndex) {
     setPinnedNotes(pinnedNotes.filter((note, index) => index !== noteIndex));
+    deleteStorageNote("pinnedNotes", noteIndex);
   }
 
   return (
@@ -35,6 +41,26 @@ function App() {
       </div>
     </div>
   );
+}
+
+function checkLocalStorage() {
+  if (!localStorage.getItem("notes")) {
+    localStorage.setItem("notes", JSON.stringify([]));
+  }
+  if (!localStorage.getItem("pinnedNotes")) {
+    localStorage.setItem("pinnedNotes", JSON.stringify([]));
+  }
+}
+
+function addStorageNote(key, note) {
+  let oldNotes = JSON.parse(localStorage.getItem(key));
+  oldNotes.push(note);
+  localStorage.setItem(key, JSON.stringify(oldNotes));
+}
+
+function deleteStorageNote(key, noteIndex) {
+  let oldNotes = JSON.parse(localStorage.getItem(key));
+  localStorage.setItem(key, JSON.stringify(oldNotes.filter((note, index) => index !== noteIndex)));
 }
 
 export default App;
