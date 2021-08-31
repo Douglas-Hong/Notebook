@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#5e5e5e',
     color: '#fff',
     padding: '5px',
-    marginTop: '10px',
   },
 }));
 

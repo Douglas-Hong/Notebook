@@ -42,28 +42,33 @@ body {
   resize: none;
 }
 
+.input-title {
+  display: flex;
+  align-items: flex-start;
+  padding: 8px 0;
+}
+
 .input-title textarea {
-  padding-top: 12px;
   width: 450px; 
 }
 
-.input-desc textarea {
-  padding-top: 8px;
-  width: 475px;
-}
-
 .pin-icon {
-  padding: 10px;
-  color: gray;
+  cursor: pointer;
   position: relative;
   bottom: 10px;
+  padding: 10px;
+  margin-top: 8px;
 }
 
 .pin-icon:hover {
-  background-color: #feefc3;
+  background-color: #ccc;
   border-radius: 10px;
-  cursor: pointer;
   transition: background-color 0.15s ease-in-out;
+}
+
+.input-desc textarea {
+  padding-top: 10px;
+  width: 475px;
 }
 
 .input-buttons {
@@ -79,9 +84,9 @@ body {
   cursor: pointer;
   font-family: inherit;
   font-weight: 700;
-  position: relative;
-  padding: 10px 0;
   margin-bottom: 5px;
+  padding: 10px 0;
+  position: relative;
   width: 100px;
 }
 
@@ -91,11 +96,11 @@ body {
 }
 
 .palette-container {
-  position: relative;
-  top: -2px;
+  cursor: pointer;
   margin-right: 15px;
   padding: 5px 5px 0;
-  cursor: pointer;
+  position: relative;
+  top: -2px;
 }
 
 .palette-container:hover {
@@ -142,26 +147,26 @@ body {
 
 .color-selection {
   background-color: #fff;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  cursor: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; 
   width: 150px;
   height: 100px;
   position: absolute;
   bottom: 40px;
   left: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   padding: 3px 0;
-  cursor: auto;
 }
 
 .color-option {
-  width: 23px;
-  height: 23px;
   border-radius: 25px;
   border: 2px solid #ccc;
-  margin: 3px;
   cursor: pointer;
+  margin: 3px;
+  width: 23px;
+  height: 23px;
 }
 
 .color-option:hover {
@@ -177,8 +182,8 @@ body {
     width: 250px;
   }
 
-  .input-box input {
-    width: 210px;
+  .input-desc textarea {
+    width: 230px;
   }
 
   .custom-button {

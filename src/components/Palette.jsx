@@ -11,12 +11,12 @@ export default function Palette(props) {
     setPaletteIsClicked(!paletteIsClicked);
   }
 
-  function setClosed() {
+  function handleClickAway() {
     setPaletteIsClicked(false);
   }
 
   return (
-    <ClickAwayListener onClickAway={setClosed}>
+    <ClickAwayListener onClickAway={handleClickAway}>
       <span className="palette-container" onClick={handlePaletteClick}>
         <Tooltip title="Change color" content={<PaletteIcon/>}></Tooltip>
         {paletteIsClicked ? <Colors onColorChange={props.onColorChange} /> : null}
