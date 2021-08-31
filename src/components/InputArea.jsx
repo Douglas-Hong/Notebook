@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import PaletteIcon from '@material-ui/icons/Palette';
 import Tooltip from './Tooltip';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import Palette from './Palette';
 
 export default function InputArea(props) {
   const [userInput, setUserInput] = useState({
     title: '',
     desc: '',
+    color: '#fff'
   });
-
   const [isPinned, setIsPinned] = useState(false);
-
   const [areaIsClicked, setAreaIsClicked] = useState(false);
 
   function handleInputChange(event) {
@@ -20,6 +19,13 @@ export default function InputArea(props) {
       ...userInput,
       [name]: value,
     });
+  }
+
+  function changeColor(color) {
+    setUserInput({
+      ...userInput,
+      color: color
+    })
   }
 
   function handlePin() {
@@ -36,6 +42,7 @@ export default function InputArea(props) {
     setUserInput({
       title: '',
       desc: '',
+      color: '#fff'
     });
   }
 
@@ -53,37 +60,55 @@ export default function InputArea(props) {
       setUserInput({
         title: '',
         desc: '',
+        color: '#fff'
       });
     }
 
     closeArea();
   }
 
+  // TODO:
+  // Change color of pin icon
+  // Use flexbox better for input-title?
+
   return (
     <div>
-      <form className="input-box" autoComplete="off">
-        <div>
-          {areaIsClicked && <input onChange={handleInputChange} name="title" placeholder="Title" value={userInput.title} />}
-          {areaIsClicked && 
+      <form className="input-box" autoComplete="off" style={{backgroundColor: userInput.color}}>
+        {areaIsClicked &&
+          <div>
+            <span className="input-title">
+              <TextareaAutosize
+                onChange={handleInputChange}
+                name="title"
+                placeholder="Title"
+                value={userInput.title}
+                style={{backgroundColor: userInput.color}}
+              />
+            </span>
             <Tooltip 
-              title={isPinned ? "Unpin note" : "Pin note"} 
+              title={isPinned ? 'Unpin note' : 'Pin note'} 
               content={<i className="fas fa-thumbtack pin-icon" onClick={handlePin} style={isPinned ? { color: '#fbbc04' } : null} />}>
-            </Tooltip>}
+            </Tooltip>
+          </div>
+        }
+        <div className="input-desc">
+          <TextareaAutosize
+            onClick={expandArea}
+            onChange={handleInputChange}
+            name="desc"
+            placeholder="Take a note..."
+            value={userInput.desc}
+            style={areaIsClicked ? { fontSize: '1rem', fontFamily: '"Arial", sans-serif', backgroundColor: userInput.color} : {backgroundColor: userInput.color}}
+            minRows={areaIsClicked ? '3' : '1'}
+          />
         </div>
-        <TextareaAutosize
-          onClick={expandArea}
-          onChange={handleInputChange}
-          name="desc"
-          placeholder="Take a note..."
-          value={userInput.desc}
-          style={areaIsClicked ? { fontSize: '1rem', fontFamily: 'Arial, sans-serif' } : null}
-          rows={areaIsClicked ? '3' : '1'}
-        />
-        <div className="input-buttons">
-          {areaIsClicked && <span className="palette-container"><PaletteIcon/></span>}
-          {areaIsClicked && <button onClick={submitNote} className="custom-button">Submit</button>}
-          {areaIsClicked && <button onClick={closeArea} className="custom-button">Close</button>}
-        </div>
+        {areaIsClicked && 
+          <div className="input-buttons">
+            <Palette onColorChange={changeColor}/>
+            <button onClick={submitNote} className="custom-button" style={{backgroundColor: userInput.color}}>Submit</button>
+            <button onClick={closeArea} className="custom-button" style={{backgroundColor: userInput.color}}>Close</button>
+          </div>
+        }
       </form>
     </div>
   );

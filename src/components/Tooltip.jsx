@@ -59,7 +59,7 @@ export default function Tooltip(props) {
         onClose={handlePopoverClose}
         disableRestoreFocus
       >
-        <Typography style={{fontSize: '0.8rem'}}>{props.title}</Typography>
+        <Typography style={{fontSize: '0.8rem', fontFamily: '"Inter", sans-serif'}}>{props.title}</Typography>
       </Popover>
     </span>
   );

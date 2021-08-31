@@ -3,30 +3,42 @@ import Navbar from './Navbar';
 import InputArea from './InputArea';
 import Note from './Note';
 
-function App() {
+export default function App() {
   checkLocalStorage();
 
   const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes")));
   const [pinnedNotes, setPinnedNotes] = useState(JSON.parse(localStorage.getItem("pinnedNotes")));
 
   function addNote(note) {
-    setNotes([...notes, note]);
-    addStorageNote("notes", note);
+    setNotes((prev) => {
+      let newNotes = [...prev, note];
+      localStorage.setItem("notes", JSON.stringify(newNotes));
+      return newNotes;
+    });
   }
 
   function deleteNote(noteIndex) {
-    setNotes(notes.filter((note, index) => index !== noteIndex));
-    deleteStorageNote("notes", noteIndex);
+    setNotes((prev) => {
+      let newNotes = prev.filter((note, index) => index !== noteIndex);
+      localStorage.setItem("notes", JSON.stringify(newNotes));
+      return newNotes;
+    });
   }
 
   function addPinnedNote(note) {
-    setPinnedNotes([...pinnedNotes, note]);
-    addStorageNote("pinnedNotes", note);
+    setPinnedNotes((prev) => {
+      let newNotes = [...prev, note];
+      localStorage.setItem("pinnedNotes", JSON.stringify(newNotes));
+      return newNotes;
+    });
   }
 
   function deletePinnedNote(noteIndex) {
-    setPinnedNotes(pinnedNotes.filter((note, index) => index !== noteIndex));
-    deleteStorageNote("pinnedNotes", noteIndex);
+    setPinnedNotes((prev) => {
+      let newNotes = prev.filter((note, index) => index !== noteIndex);
+      localStorage.setItem("pinnedNotes", JSON.stringify(newNotes));
+      return newNotes;
+    });
   }
 
   return (
@@ -36,9 +48,9 @@ function App() {
         <InputArea onAdd={addNote} onPinnedAdd={addPinnedNote} />
         <div className="notes-container">
           {pinnedNotes.length > 0 && <h5 className="note-category">PINNED</h5>}
-          {pinnedNotes.map((note, index) => <Note title={note.title} desc={note.desc} key={index} index={index} onDelete={deletePinnedNote} />)}
+          {pinnedNotes.map((note, index) => <Note title={note.title} desc={note.desc} color={note.color} key={index} index={index} onDelete={deletePinnedNote} />)}
           {pinnedNotes.length > 0 && notes.length > 0 && <h5 className="note-category">OTHERS</h5>}
-          {notes.map((note, index) => <Note title={note.title} desc={note.desc} key={index} index={index} onDelete={deleteNote} />)}
+          {notes.map((note, index) => <Note title={note.title} desc={note.desc} color={note.color} key={index} index={index} onDelete={deleteNote} />)}
         </div>
       </div>
     </div>
@@ -53,16 +65,3 @@ function checkLocalStorage() {
     localStorage.setItem("pinnedNotes", JSON.stringify([]));
   }
 }
-
-function addStorageNote(key, note) {
-  let oldNotes = JSON.parse(localStorage.getItem(key));
-  oldNotes.push(note);
-  localStorage.setItem(key, JSON.stringify(oldNotes));
-}
-
-function deleteStorageNote(key, noteIndex) {
-  let oldNotes = JSON.parse(localStorage.getItem(key));
-  localStorage.setItem(key, JSON.stringify(oldNotes.filter((note, index) => index !== noteIndex)));
-}
-
-export default App;
