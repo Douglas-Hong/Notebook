@@ -32,12 +32,14 @@ function App() {
   return (
     <div>
       <Navbar />
-      <InputArea onAdd={addNote} onPinnedAdd={addPinnedNote} />
-      <div className="notes-container">
-        {pinnedNotes.length > 0 && <h5 className="note-category">PINNED</h5>}
-        {pinnedNotes.map((note, index) => <Note title={note.title} desc={note.desc} key={index} index={index} onDelete={deletePinnedNote} />)}
-        {pinnedNotes.length > 0 && notes.length > 0 && <h5 className="note-category">OTHERS</h5>}
-        {notes.map((note, index) => <Note title={note.title} desc={note.desc} key={index} index={index} onDelete={deleteNote} />)}
+      <div className="notebook-container">
+        <InputArea onAdd={addNote} onPinnedAdd={addPinnedNote} />
+        <div className="notes-container">
+          {pinnedNotes.length > 0 && <h5 className="note-category">PINNED</h5>}
+          {pinnedNotes.map((note, index) => <Note title={note.title} desc={note.desc} key={index} index={index} onDelete={deletePinnedNote} />)}
+          {pinnedNotes.length > 0 && notes.length > 0 && <h5 className="note-category">OTHERS</h5>}
+          {notes.map((note, index) => <Note title={note.title} desc={note.desc} key={index} index={index} onDelete={deleteNote} />)}
+        </div>
       </div>
     </div>
   );

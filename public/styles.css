@@ -19,6 +19,10 @@ body {
   margin: 0 auto;
 }
 
+.notebook-container {
+  padding: 0 85px;
+}
+
 .input-box {
   background-color: #fff;
   border: 1px solid #ccc;
@@ -36,12 +40,16 @@ body {
   font-family: inherit;
   font-size: 1.2rem;
   outline: none;
-  padding: 8px 0;
   resize: none;
 }
 
 .input-box input {
+  padding: 8px 0;
   width: 450px; 
+}
+
+.input-box textarea {
+  padding: 8px 20px 8px 0;
 }
 
 .pin-icon {
@@ -52,7 +60,7 @@ body {
 .pin-icon:hover {
   background-color: #feefc3;
   border-radius: 10px;
-  color: #fbbc04;
+  cursor: pointer;
   transition: background-color 0.15s ease-in-out;
 }
 
@@ -96,7 +104,6 @@ body {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding: 0 32px;
 }
 
 .note-box {
@@ -114,8 +121,8 @@ body {
 .note-category {
   color: gray;
   font-weight: 500;
-  margin: 0;
-  padding: 30px 15px 0;
+  margin: 30px 0 0;
+  padding-left: 25px;
   width: 100%;
 }
 
@@ -132,6 +139,10 @@ body {
 }
 
 @media (max-width: 576px) {
+  .notebook-container {
+    padding: 0 20px;
+  }
+
   .input-box {
     width: 250px;
   }
@@ -145,7 +156,6 @@ body {
   }
 
   .notes-container {
-    padding: 0 10px;
     justify-content: center;
   }
 
@@ -155,5 +165,6 @@ body {
 
   .note-category {
     text-align: center;
+    padding-left: 0;
   }
 }

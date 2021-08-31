@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import PaletteIcon from '@material-ui/icons/Palette';
+import Tooltip from './Tooltip';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 export default function InputArea(props) {
   const [userInput, setUserInput] = useState({
@@ -30,6 +32,7 @@ export default function InputArea(props) {
 
   function closeArea() {
     setAreaIsClicked(false);
+    setIsPinned(false);
     setUserInput({
       title: '',
       desc: '',
@@ -61,9 +64,13 @@ export default function InputArea(props) {
       <form className="input-box" autoComplete="off">
         <div>
           {areaIsClicked && <input onChange={handleInputChange} name="title" placeholder="Title" value={userInput.title} />}
-          {areaIsClicked && <i className="fas fa-thumbtack pin-icon" onClick={handlePin} style={isPinned ? { color: '#fbbc04' } : null} />}
+          {areaIsClicked && 
+            <Tooltip 
+              title={isPinned ? "Unpin note" : "Pin note"} 
+              content={<i className="fas fa-thumbtack pin-icon" onClick={handlePin} style={isPinned ? { color: '#fbbc04' } : null} />}>
+            </Tooltip>}
         </div>
-        <textarea
+        <TextareaAutosize
           onClick={expandArea}
           onChange={handleInputChange}
           name="desc"
