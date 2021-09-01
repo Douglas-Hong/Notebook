@@ -52,6 +52,26 @@ body {
   width: 450px; 
 }
 
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip-title {
+  visibility: hidden;
+  background-color: #5e5e5e;
+  border-radius: 5px;
+  position: absolute;
+  padding: 5px 8px;
+  color: white;
+  font-size: 0.8rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.tooltip-container:hover .tooltip-title {
+  visibility: visible;
+}
+
 .pin-icon {
   cursor: pointer;
   position: relative;

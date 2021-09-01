@@ -18,7 +18,16 @@ export default function Palette(props) {
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <span className="palette-container" onClick={handlePaletteClick}>
-        <Tooltip title="Change color" content={<PaletteIcon/>}></Tooltip>
+        <Tooltip 
+          title="Change color" 
+          content={<PaletteIcon />}
+          customStyle={
+            {
+              top: '31px',
+              left: '-39px'
+            }
+          }
+        />
         {paletteIsClicked ? <Colors onColorChange={props.onColorChange} /> : null}
       </span>
     </ClickAwayListener>
