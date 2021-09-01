@@ -48,9 +48,27 @@ export default function App() {
         <InputArea onAdd={addNote} onPinnedAdd={addPinnedNote} />
         <div className="notes-container">
           {pinnedNotes.length > 0 && <h5 className="note-category">PINNED</h5>}
-          {pinnedNotes.map((note, index) => <Note title={note.title} desc={note.desc} color={note.color} key={index} index={index} onDelete={deletePinnedNote} />)}
+          {pinnedNotes.map((note, index) => {
+            return (
+              <Note 
+                note={note}
+                key={index}
+                index={index}
+                onDelete={deletePinnedNote} 
+              />
+            );
+          })}
           {pinnedNotes.length > 0 && notes.length > 0 && <h5 className="note-category">OTHERS</h5>}
-          {notes.map((note, index) => <Note title={note.title} desc={note.desc} color={note.color} key={index} index={index} onDelete={deleteNote} />)}
+          {notes.map((note, index) => {
+            return (
+              <Note 
+                note={note}
+                key={index}
+                index={index}
+                onDelete={deleteNote}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

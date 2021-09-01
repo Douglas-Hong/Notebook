@@ -68,30 +68,29 @@ export default function InputArea(props) {
   }
 
   return (
-    <div>
-      <form className="input-box" autoComplete="off" style={{backgroundColor: userInput.color}}>
-        {areaIsClicked && 
-          <InputTitle 
-            onChange={handleInputChange}
-            onPin={handlePin}
-            userInput={userInput}
-            isPinned={isPinned}
-          />}
-        <InputDesc
-          onExpand={expandArea}
+    <form className="input-box" autoComplete="off" style={{backgroundColor: userInput.color}}>
+      {areaIsClicked && 
+        <InputTitle 
           onChange={handleInputChange}
+          onPin={handlePin}
           userInput={userInput}
-          areaIsClicked={areaIsClicked}
+          isPinned={isPinned}
         />
-        {areaIsClicked && 
-          <InputButtons 
-            onColorChange={changeColor}
-            submitNote={submitNote}
-            closeArea={closeArea}
-            userInput={userInput}
-          />
-        }
-      </form>
-    </div>
+      }
+      <InputDesc
+        onExpand={expandArea}
+        onChange={handleInputChange}
+        userInput={userInput}
+        areaIsClicked={areaIsClicked}
+      />
+      {areaIsClicked && 
+        <InputButtons 
+          onColorChange={changeColor}
+          submitNote={submitNote}
+          closeArea={closeArea}
+          userInput={userInput}
+        />
+      }
+    </form>
   );
 }

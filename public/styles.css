@@ -134,11 +134,18 @@ body {
 }
 
 .note-title {
-  margin: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.note-title-heading {
+  width: 240px;
+  margin: 0 0 15px;
 }
 
 .note-desc {
   font-family: "Arial", sans-serif;
+  margin-top: 0;
 }
 
 .delete-button {
@@ -161,8 +168,8 @@ body {
 }
 
 .color-option {
-  border-radius: 25px;
   border: 2px solid #ccc;
+  border-radius: 25px;
   cursor: pointer;
   margin: 3px;
   width: 23px;
@@ -198,8 +205,12 @@ body {
     width: 325px;
   }
 
+  .note-title-heading {
+    width: 290px;
+  }
+
   .note-category {
-    text-align: center;
     padding-left: 0;
+    text-align: center;
   }
 }
