@@ -5,7 +5,7 @@ export default function Colors(props) {
     '#cff1f9', '#b4cffa', '#dab4fb', '#fdd3ea', '#e8cdae', '#eaecee'];
 
   function handleColorClick(color) {
-    return function () {
+    return () => {
       props.onColorChange(color);
     }
   }

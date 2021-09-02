@@ -57,14 +57,13 @@ body {
 }
 
 .tooltip-title {
-  visibility: hidden;
   background-color: #5e5e5e;
   border-radius: 5px;
-  position: absolute;
-  padding: 5px 8px;
   color: white;
   font-size: 0.8rem;
-  text-align: center;
+  padding: 5px 8px;
+  position: absolute;
+  visibility: hidden;
   white-space: nowrap;
 }
 
@@ -168,8 +167,10 @@ body {
   margin-top: 0;
 }
 
-.delete-button {
+.note-buttons {
   align-self: flex-end;
+  display: flex;
+  align-items: center;
 }
 
 .color-selection {

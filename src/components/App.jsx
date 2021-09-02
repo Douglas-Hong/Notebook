@@ -41,6 +41,22 @@ export default function App() {
     });
   }
 
+  function handleColorChange(noteIndex, newColor) {
+    setNotes((prev) => {
+      prev[noteIndex].color = newColor;
+      localStorage.setItem("notes", JSON.stringify(prev));
+      return prev;
+    });
+  }
+
+  function handlePinnedColorChange(noteIndex, newColor) {
+    setPinnedNotes((prev) => {
+      prev[noteIndex].color = newColor;
+      localStorage.setItem("pinnedNotes", JSON.stringify(prev));
+      return prev;
+    });
+  }
+
   return (
     <div>
       <Navbar />
@@ -54,7 +70,8 @@ export default function App() {
                 note={note}
                 key={index}
                 index={index}
-                onDelete={deletePinnedNote} 
+                onDelete={deletePinnedNote}
+                onColorChange={handlePinnedColorChange}
               />
             );
           })}
@@ -66,6 +83,7 @@ export default function App() {
                 key={index}
                 index={index}
                 onDelete={deleteNote}
+                onColorChange={handleColorChange}
               />
             );
           })}
