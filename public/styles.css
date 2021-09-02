@@ -144,6 +144,10 @@ body {
   word-wrap: break-word;
 }
 
+.note-box:hover {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2); 
+}
+
 .note-category {
   color: gray;
   font-weight: 500;

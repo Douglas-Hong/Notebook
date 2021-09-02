@@ -7,7 +7,7 @@ export default function Colors(props) {
   function handleColorClick(color) {
     return () => {
       props.onColorChange(color);
-    }
+    };
   }
 
   return (
