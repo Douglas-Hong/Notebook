@@ -8,6 +8,7 @@ export default function App() {
 
   const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes")));
   const [pinnedNotes, setPinnedNotes] = useState(JSON.parse(localStorage.getItem("pinnedNotes")));
+  const [triggerOpacity, setTriggerOpacity] = useState(false);
 
   function addNote(note) {
     setNotes((prev) => {
@@ -57,8 +58,29 @@ export default function App() {
     });
   }
 
+  function editNote(noteIndex, newNote) {
+    setNotes((prev) => {
+      prev[noteIndex] = newNote;
+      localStorage.setItem("notes", JSON.stringify(prev));
+      return prev;
+    });
+  }
+
+  function editPinnedNote(noteIndex, newNote) {
+    setPinnedNotes((prev) => {
+      prev[noteIndex] = newNote;
+      localStorage.setItem("pinnedNotes", JSON.stringify(prev));
+      return prev;
+    });
+  }
+
+  function handleOpacity() {
+    setTriggerOpacity(!triggerOpacity);
+  }
+
   return (
     <div>
+      <div id="opacity-container" style={{display: triggerOpacity ? 'block' : 'none'}}></div>
       <Navbar />
       <div className="notebook-container">
         <InputArea onAdd={addNote} onPinnedAdd={addPinnedNote} />
@@ -72,6 +94,8 @@ export default function App() {
                 index={index}
                 onDelete={deletePinnedNote}
                 onColorChange={handlePinnedColorChange}
+                onOpacityChange={handleOpacity}
+                onResubmit={editPinnedNote}
               />
             );
           })}
@@ -84,6 +108,8 @@ export default function App() {
                 index={index}
                 onDelete={deleteNote}
                 onColorChange={handleColorChange}
+                onOpacityChange={handleOpacity}
+                onResubmit={editNote}
               />
             );
           })}

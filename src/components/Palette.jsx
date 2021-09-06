@@ -7,7 +7,8 @@ import Colors from './Colors';
 export default function Palette(props) {
   const [paletteIsClicked, setPaletteIsClicked] = useState(false);
 
-  function handlePaletteClick() {
+  function handlePaletteClick(event) {
+    event.stopPropagation();
     setPaletteIsClicked(!paletteIsClicked);
   }
 
