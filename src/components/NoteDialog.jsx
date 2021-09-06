@@ -24,31 +24,39 @@ export default function NoteDialog(props) {
     handleClickAway();
   }
 
+  function handleDialogColor(color) {
+    setDialogInput({
+      ...dialogInput,
+      color: color,
+    });
+  }
+
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
-      <div className="note-dialog">
+      <div className="note-dialog" style={{backgroundColor: dialogInput.color}}>
         <div className="input-title">
           <TextareaAutosize 
             placeholder="Title"
             onChange={handleInputChange}
             name="title"
             value={dialogInput.title}
+            style={{backgroundColor: dialogInput.color}}
           />
         </div>
         <div className="input-desc">
           <TextareaAutosize 
             placeholder="Take a note..."
             onChange={handleInputChange}
-            style={{fontSize: '1rem', fontFamily: '"Arial", sans-serif'}}
+            style={{fontSize: '1rem', fontFamily: '"Arial", sans-serif', backgroundColor: dialogInput.color}}
             name="desc"
             value={dialogInput.desc}
             minRows={3}
           />
         </div>
         <div className="input-buttons">
-          <Palette />
-          <button className="custom-button" onClick={resubmitNote}>Submit</button>
-          <button className="custom-button" onClick={handleClickAway}>Close</button>
+          <Palette onColorChange={handleDialogColor} />
+          <button className="custom-button" onClick={resubmitNote} style={{backgroundColor: dialogInput.color}}>Submit</button>
+          <button className="custom-button" onClick={handleClickAway} style={{backgroundColor: dialogInput.color}}>Close</button>
         </div>
       </div>
     </ClickAwayListener>

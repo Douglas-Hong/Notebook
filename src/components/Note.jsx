@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import NoteButtons from './NoteButtons';
 import NoteDialog from './NoteDialog';
 
 export default function Note(props) {
   const [noteColor, setNoteColor] = useState(props.note.color);
   const [showDialog, setShowDialog] = useState(false);
+
+  useEffect(() => {
+    setNoteColor(props.note.color);
+  }, [props.note.color]);
 
   function deleteNote() {
     props.onDelete(props.index);
