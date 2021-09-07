@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Palette from './Palette';
+import getDate from '../getDate';
 
 export default function NoteDialog(props) {
   const [dialogInput, setDialogInput] = useState(props.note);
@@ -20,7 +21,10 @@ export default function NoteDialog(props) {
   }
 
   function resubmitNote() {
-    props.onResubmit(props.index, dialogInput);
+    props.onResubmit(props.index, {
+      ...dialogInput,
+      date: getDate() 
+    });
     handleClickAway();
   }
 
@@ -53,6 +57,7 @@ export default function NoteDialog(props) {
             minRows={3}
           />
         </div>
+        <p className="timestamp">Edited {props.note.date}</p>
         <div className="input-buttons">
           <Palette onColorChange={handleDialogColor} />
           <button className="custom-button" onClick={resubmitNote} style={{backgroundColor: dialogInput.color}}>Submit</button>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import InputTitle from './InputTitle';
 import InputDesc from './InputDesc';
 import InputButtons from './InputButtons';
+import getDate from '../getDate';
 
 export default function InputArea(props) {
   const [userInput, setUserInput] = useState({
@@ -50,11 +51,16 @@ export default function InputArea(props) {
     event.preventDefault();
 
     if (userInput.title !== '' || userInput.desc !== '') {
+      const timestampedInput = {
+        ...userInput,
+        date: getDate()
+      }
+
       if (isPinned) {
-        props.onPinnedAdd(userInput);
+        props.onPinnedAdd(timestampedInput);
         setIsPinned(false);
       } else {
-        props.onAdd(userInput);
+        props.onAdd(timestampedInput);
       }
 
       setUserInput({

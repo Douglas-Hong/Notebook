@@ -164,6 +164,7 @@ body {
 .note-title-heading {
   width: 240px;
   margin: 0 0 15px;
+  font-weight: 600;
 }
 
 .note-desc {
@@ -200,6 +201,12 @@ body {
   background-color: #797a7c;
   opacity: 0.7;
   z-index: 1;
+}
+
+.timestamp {
+  font-size: 0.7rem;
+  align-self: flex-end;
+  margin-right: 10px;
 }
 
 .color-selection {
