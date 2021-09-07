@@ -235,7 +235,7 @@ body {
     padding: 0 20px;
   }
 
-  .input-box {
+  .input-box, .note-dialog {
     width: 250px;
   }
 
@@ -249,14 +249,6 @@ body {
 
   .notes-container {
     justify-content: center;
-  }
-
-  .note-box {
-    width: 325px;
-  }
-
-  .note-title-heading {
-    width: 290px;
   }
 
   .note-category {

@@ -12,7 +12,7 @@ export default function App() {
 
   function addNote(note) {
     setNotes((prev) => {
-      let newNotes = [...prev, note];
+      let newNotes = [note, ...prev];
       localStorage.setItem("notes", JSON.stringify(newNotes));
       return newNotes;
     });
@@ -28,7 +28,7 @@ export default function App() {
 
   function addPinnedNote(note) {
     setPinnedNotes((prev) => {
-      let newNotes = [...prev, note];
+      let newNotes = [note, ...prev];
       localStorage.setItem("pinnedNotes", JSON.stringify(newNotes));
       return newNotes;
     });
