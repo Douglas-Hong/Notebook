@@ -34,7 +34,7 @@ body {
   width: 500px;
 }
 
-.input-box textarea, .note-dialog textarea, .note-box textarea {
+textarea {
   border: none;
   font-family: inherit;
   font-size: 1.2rem;
@@ -188,11 +188,17 @@ body {
   display: flex;
 }
 
-.note-title-heading {
-  font-size: 1.1rem;
+.note-title textarea {
+  color: #000;
   font-weight: 600;
-  margin: 0 0 15px;
-  width: 240px;
+  padding: 0 0 20px;
+}
+
+.note-desc textarea {
+  color: #000;
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  padding: 0;
 }
 
 .note-buttons {
