@@ -6,14 +6,14 @@ import Note from './Note';
 export default function App() {
   checkLocalStorage();
 
-  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes")));
-  const [pinnedNotes, setPinnedNotes] = useState(JSON.parse(localStorage.getItem("pinnedNotes")));
+  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')));
+  const [pinnedNotes, setPinnedNotes] = useState(JSON.parse(localStorage.getItem('pinnedNotes')));
   const [triggerOpacity, setTriggerOpacity] = useState(false);
 
   function addNote(note) {
     setNotes((prev) => {
       let newNotes = [note, ...prev];
-      localStorage.setItem("notes", JSON.stringify(newNotes));
+      localStorage.setItem('notes', JSON.stringify(newNotes));
       return newNotes;
     });
   }
@@ -21,7 +21,7 @@ export default function App() {
   function deleteNote(noteIndex) {
     setNotes((prev) => {
       let newNotes = prev.filter((note, index) => index !== noteIndex);
-      localStorage.setItem("notes", JSON.stringify(newNotes));
+      localStorage.setItem('notes', JSON.stringify(newNotes));
       return newNotes;
     });
   }
@@ -29,7 +29,7 @@ export default function App() {
   function addPinnedNote(note) {
     setPinnedNotes((prev) => {
       let newNotes = [note, ...prev];
-      localStorage.setItem("pinnedNotes", JSON.stringify(newNotes));
+      localStorage.setItem('pinnedNotes', JSON.stringify(newNotes));
       return newNotes;
     });
   }
@@ -37,7 +37,7 @@ export default function App() {
   function deletePinnedNote(noteIndex) {
     setPinnedNotes((prev) => {
       let newNotes = prev.filter((note, index) => index !== noteIndex);
-      localStorage.setItem("pinnedNotes", JSON.stringify(newNotes));
+      localStorage.setItem('pinnedNotes', JSON.stringify(newNotes));
       return newNotes;
     });
   }
@@ -45,7 +45,7 @@ export default function App() {
   function handleColorChange(noteIndex, newColor) {
     setNotes((prev) => {
       prev[noteIndex].color = newColor;
-      localStorage.setItem("notes", JSON.stringify(prev));
+      localStorage.setItem('notes', JSON.stringify(prev));
       return prev;
     });
   }
@@ -53,7 +53,7 @@ export default function App() {
   function handlePinnedColorChange(noteIndex, newColor) {
     setPinnedNotes((prev) => {
       prev[noteIndex].color = newColor;
-      localStorage.setItem("pinnedNotes", JSON.stringify(prev));
+      localStorage.setItem('pinnedNotes', JSON.stringify(prev));
       return prev;
     });
   }
@@ -61,7 +61,7 @@ export default function App() {
   function editNote(noteIndex, newNote) {
     setNotes((prev) => {
       prev[noteIndex] = newNote;
-      localStorage.setItem("notes", JSON.stringify(prev));
+      localStorage.setItem('notes', JSON.stringify(prev));
       return prev;
     });
   }
@@ -69,7 +69,7 @@ export default function App() {
   function editPinnedNote(noteIndex, newNote) {
     setPinnedNotes((prev) => {
       prev[noteIndex] = newNote;
-      localStorage.setItem("pinnedNotes", JSON.stringify(prev));
+      localStorage.setItem('pinnedNotes', JSON.stringify(prev));
       return prev;
     });
   }
@@ -120,10 +120,10 @@ export default function App() {
 }
 
 function checkLocalStorage() {
-  if (!localStorage.getItem("notes")) {
-    localStorage.setItem("notes", JSON.stringify([]));
+  if (!localStorage.getItem('notes')) {
+    localStorage.setItem('notes', JSON.stringify([]));
   }
-  if (!localStorage.getItem("pinnedNotes")) {
-    localStorage.setItem("pinnedNotes", JSON.stringify([]));
+  if (!localStorage.getItem('pinnedNotes')) {
+    localStorage.setItem('pinnedNotes', JSON.stringify([]));
   }
 }

@@ -14,7 +14,7 @@ export default function InputArea(props) {
   const [areaIsClicked, setAreaIsClicked] = useState(false);
 
   function handleInputChange(event) {
-    const { name, value } = event.target;
+    const {name, value} = event.target;
 
     setUserInput({
       ...userInput,
@@ -22,19 +22,19 @@ export default function InputArea(props) {
     });
   }
 
+  function handlePin() {
+    setIsPinned((prev) => !prev);
+  }
+
+  function expandArea() {
+    setAreaIsClicked(true);
+  }
+
   function changeColor(color) {
     setUserInput({
       ...userInput,
       color: color
     })
-  }
-
-  function handlePin() {
-    setIsPinned(!isPinned);
-  }
-
-  function expandArea() {
-    setAreaIsClicked(true);
   }
 
   function closeArea() {

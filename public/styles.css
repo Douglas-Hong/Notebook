@@ -1,6 +1,6 @@
 body {
   background-color: #eee;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
@@ -43,8 +43,8 @@ body {
 }
 
 .input-title {
-  display: flex;
   align-items: flex-start;
+  display: flex;
   padding: 8px 0;
 }
 
@@ -59,7 +59,7 @@ body {
 .tooltip-title {
   background-color: #5e5e5e;
   border-radius: 5px;
-  color: white;
+  color: #fff;
   font-size: 0.8rem;
   padding: 5px 8px;
   position: absolute;
@@ -72,11 +72,11 @@ body {
 }
 
 .pin-icon {
-  cursor: pointer;
-  position: relative;
   bottom: 10px;
-  padding: 10px;
+  cursor: pointer;
   margin-top: 8px;
+  padding: 10px;
+  position: relative;
 }
 
 .pin-icon:hover {
@@ -91,9 +91,9 @@ body {
 }
 
 .input-buttons {
+  align-items: center;
   align-self: flex-end;
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -101,11 +101,10 @@ body {
   background-color: #fff;
   border: none;
   cursor: pointer;
-  font-family: inherit;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   margin-bottom: 5px;
   padding: 10px 0;
-  position: relative;
   width: 100px;
 }
 
@@ -126,9 +125,45 @@ body {
   background-color: #ccc;
 }
 
-.notes-container {
+.color-selection {
+  background-color: #fff;
+  bottom: 40px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  cursor: auto;
   display: flex;
+  flex-wrap: wrap; 
+  height: 100px;
+  justify-content: center;
+  left: 0;
+  padding: 3px 0;
+  position: absolute;
+  width: 150px;
+}
+
+.color-option {
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  cursor: pointer;
+  height: 23px;
+  margin: 3px;
+  width: 23px;
+}
+
+.color-option:hover {
+  border-color: #000;
+}
+
+.note-category {
+  color: #808080;
+  font-weight: 500;
+  margin: 30px 0 0;
+  padding-left: 25px;
+  width: 100%;
+}
+
+.notes-container {
   align-items: flex-start;
+  display: flex;
   flex-wrap: wrap;
 }
 
@@ -148,34 +183,26 @@ body {
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2); 
 }
 
-.note-category {
-  color: gray;
-  font-weight: 500;
-  margin: 30px 0 0;
-  padding-left: 25px;
-  width: 100%;
-}
-
 .note-title {
-  display: flex;
   align-items: flex-start;
+  display: flex;
 }
 
 .note-title-heading {
-  width: 240px;
-  margin: 0 0 15px;
   font-weight: 600;
+  margin: 0 0 15px;
+  width: 240px;
 }
 
 .note-desc {
-  font-family: "Arial", sans-serif;
+  font-family: 'Arial', sans-serif;
   margin-top: 0;
 }
 
 .note-buttons {
+  align-items: center;
   align-self: flex-end;
   display: flex;
-  align-items: center;
 }
 
 .note-dialog {
@@ -195,46 +222,18 @@ body {
 }
 
 #opacity-container {
-  width: 100%;
-  height: 100%;
-  position: fixed;
   background-color: #797a7c;
+  height: 100%;
   opacity: 0.7;
+  position: fixed;
+  width: 100%;
   z-index: 1;
 }
 
 .timestamp {
-  font-size: 0.7rem;
   align-self: flex-end;
+  font-size: 0.7rem;
   margin-right: 10px;
-}
-
-.color-selection {
-  background-color: #fff;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
-  cursor: auto;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; 
-  width: 150px;
-  height: 100px;
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  padding: 3px 0;
-}
-
-.color-option {
-  border: 2px solid #ccc;
-  border-radius: 25px;
-  cursor: pointer;
-  margin: 3px;
-  width: 23px;
-  height: 23px;
-}
-
-.color-option:hover {
-  border-color: #000;
 }
 
 @media (max-width: 576px) {

@@ -6,6 +6,6 @@ export default function getDate() {
 		hour: 'numeric',
 		minute: 'numeric'
 	};
-
+  
 	return new Date().toLocaleString('en-US', options);
 }

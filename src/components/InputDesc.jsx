@@ -11,7 +11,7 @@ export default function InputDesc(props) {
         placeholder="Take a note..."
         value={props.userInput.desc}
         style={props.areaIsClicked 
-          ? { fontSize: '1rem', fontFamily: '"Arial", sans-serif', paddingTop: '0', backgroundColor: props.userInput.color} 
+          ? {backgroundColor: props.userInput.color, fontFamily: "'Arial', sans-serif", fontSize: '1rem', paddingTop: '0'}
           : {backgroundColor: props.userInput.color}}
         minRows={props.areaIsClicked ? '3' : '1'}
       />

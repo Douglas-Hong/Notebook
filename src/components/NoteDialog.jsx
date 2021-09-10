@@ -7,25 +7,13 @@ import getDate from '../getDate';
 export default function NoteDialog(props) {
   const [dialogInput, setDialogInput] = useState(props.note);
 
-  function handleClickAway() {
-    props.hide();
-  }
-
   function handleInputChange(event) {
-    const { name, value } = event.target;
+    const {name, value} = event.target;
 
     setDialogInput({
       ...dialogInput,
       [name]: value,
     });
-  }
-
-  function resubmitNote() {
-    props.onResubmit(props.index, {
-      ...dialogInput,
-      date: getDate() 
-    });
-    handleClickAway();
   }
 
   function handleDialogColor(color) {
@@ -35,8 +23,16 @@ export default function NoteDialog(props) {
     });
   }
 
+  function resubmitNote() {
+    props.onResubmit(props.index, {
+      ...dialogInput,
+      date: getDate() 
+    });
+    props.hideDialog();
+  }
+
   return (
-    <ClickAwayListener onClickAway={handleClickAway}>
+    <ClickAwayListener onClickAway={props.hideDialog}>
       <div className="note-dialog" style={{backgroundColor: dialogInput.color}}>
         <div className="input-title">
           <TextareaAutosize 
@@ -51,9 +47,9 @@ export default function NoteDialog(props) {
           <TextareaAutosize 
             placeholder="Take a note..."
             onChange={handleInputChange}
-            style={{fontSize: '1rem', fontFamily: '"Arial", sans-serif', backgroundColor: dialogInput.color}}
             name="desc"
             value={dialogInput.desc}
+            style={{backgroundColor: dialogInput.color, fontFamily: "'Arial', sans-serif", fontSize: '1rem'}}
             minRows={3}
           />
         </div>
@@ -61,7 +57,7 @@ export default function NoteDialog(props) {
         <div className="input-buttons">
           <Palette onColorChange={handleDialogColor} />
           <button className="custom-button" onClick={resubmitNote} style={{backgroundColor: dialogInput.color}}>Submit</button>
-          <button className="custom-button" onClick={handleClickAway} style={{backgroundColor: dialogInput.color}}>Close</button>
+          <button className="custom-button" onClick={props.hideDialog} style={{backgroundColor: dialogInput.color}}>Close</button>
         </div>
       </div>
     </ClickAwayListener>

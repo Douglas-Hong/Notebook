@@ -4,7 +4,7 @@ export default function Tooltip(props) {
   return (
     <div className="tooltip-container">
       {props.content}
-      <span className="tooltip-title" style={props.customStyle}>{props.title}</span>
+      <div className="tooltip-title" style={props.customStyle}>{props.title}</div>
     </div>
   );
 }

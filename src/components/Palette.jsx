@@ -8,12 +8,11 @@ export default function Palette(props) {
 
   function handlePaletteClick(event) {
     event.stopPropagation();
-    setPaletteIsClicked(!paletteIsClicked);
+    setPaletteIsClicked((prev) => !prev);
   }
 
-
   return (
-    <span className="palette-container" onClick={handlePaletteClick}>
+    <div className="palette-container" onClick={handlePaletteClick}>
       <Tooltip 
         title="Change color" 
         content={<PaletteIcon />}
@@ -25,6 +24,6 @@ export default function Palette(props) {
         }
       />
       {paletteIsClicked && <Colors onColorChange={props.onColorChange} />}
-    </span>
+    </div>
   );
 }

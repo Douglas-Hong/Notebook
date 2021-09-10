@@ -14,13 +14,13 @@ export default function InputTitle(props) {
       />
       <Tooltip
         title={props.isPinned ? 'Unpin note' : 'Pin note'} 
-        content={<i className="fas fa-thumbtack pin-icon" onClick={props.onPin} style={props.isPinned ? { color: '#000' } : {color: 'gray'}} />}
-        customStyle={props.isPinned ? 
-          {
+        content={<i className="fas fa-thumbtack pin-icon" onClick={props.onPin} style={props.isPinned ? {color: '#000'} : {color: 'gray'}} />}
+        customStyle={props.isPinned 
+          ? {
             top: '35px',
             left: '-28px'
-          } :
-          {
+          } 
+          : {
             top: '35px',
             left: '-18px'
           }

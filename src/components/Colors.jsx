@@ -11,8 +11,8 @@ export default function Colors(props) {
   }
 
   return (
-    <span className="color-selection">
+    <div className="color-selection">
       {colors.map((color, index) => <div className="color-option" onClick={handleColorClick(color)} key={index} style={{backgroundColor: color}}></div>)}
-    </span>
+    </div>
   );
 }

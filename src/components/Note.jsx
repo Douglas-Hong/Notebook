@@ -10,6 +10,11 @@ export default function Note(props) {
     setNoteColor(props.note.color);
   }, [props.note.color]);
 
+  function handleClick() {
+    setShowDialog(true);
+    props.onOpacityChange();
+  }
+
   function deleteNote() {
     props.onDelete(props.index);
   }
@@ -19,12 +24,7 @@ export default function Note(props) {
     setNoteColor(color);
   }
 
-  function handleClick() {
-    setShowDialog(true);
-    props.onOpacityChange();
-  }
-
-  function hide() {
+  function hideDialog() {
     setShowDialog(false);
     props.onOpacityChange();
   }
@@ -38,7 +38,7 @@ export default function Note(props) {
         <p className="note-desc">{props.note.desc}</p>
         <NoteButtons onDelete={deleteNote} color={noteColor} onColorChange={changeNoteColor} />
       </div>
-      {showDialog && <NoteDialog note={props.note} index={props.index} hide={hide} onResubmit={props.onResubmit}/>}
+      {showDialog && <NoteDialog note={props.note} index={props.index} hideDialog={hideDialog} onResubmit={props.onResubmit}/>}
     </div>
   );
 }
