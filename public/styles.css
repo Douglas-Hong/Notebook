@@ -34,7 +34,7 @@ body {
   width: 500px;
 }
 
-.input-box textarea, .note-dialog textarea {
+.input-box textarea, .note-dialog textarea, .note-box textarea {
   border: none;
   font-family: inherit;
   font-size: 1.2rem;
@@ -180,7 +180,7 @@ body {
 }
 
 .note-box:hover {
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3); 
 }
 
 .note-title {
@@ -189,14 +189,10 @@ body {
 }
 
 .note-title-heading {
+  font-size: 1.1rem;
   font-weight: 600;
   margin: 0 0 15px;
   width: 240px;
-}
-
-.note-desc {
-  font-family: 'Arial', sans-serif;
-  margin-top: 0;
 }
 
 .note-buttons {

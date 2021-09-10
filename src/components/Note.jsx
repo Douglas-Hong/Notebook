@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import NoteButtons from './NoteButtons';
 import NoteDialog from './NoteDialog';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 export default function Note(props) {
   const [noteColor, setNoteColor] = useState(props.note.color);
@@ -35,7 +36,12 @@ export default function Note(props) {
         <div className="note-title">
           <h3 className="note-title-heading">{props.note.title}</h3>
         </div>
-        <p className="note-desc">{props.note.desc}</p>
+        <TextareaAutosize 
+          className="note-desc" 
+          style={{backgroundColor: noteColor, color: '#000', fontFamily: "'Arial', sans-serif", fontSize: '1rem', padding: '0'}} 
+          value={props.note.desc}
+          disabled
+        />
         <NoteButtons onDelete={deleteNote} color={noteColor} onColorChange={changeNoteColor} />
       </div>
       {showDialog && <NoteDialog note={props.note} index={props.index} hideDialog={hideDialog} onResubmit={props.onResubmit}/>}
