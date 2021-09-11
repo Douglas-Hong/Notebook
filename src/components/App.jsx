@@ -75,7 +75,7 @@ export default function App() {
   }
 
   function handleOpacity() {
-    setTriggerOpacity(!triggerOpacity);
+    setTriggerOpacity((prev) => !prev);
   }
 
   return (

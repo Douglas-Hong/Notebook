@@ -10,16 +10,20 @@ export default function NoteDialog(props) {
   function handleInputChange(event) {
     const {name, value} = event.target;
 
-    setDialogInput({
-      ...dialogInput,
-      [name]: value,
+    setDialogInput((prev) => {
+      return {
+        ...prev,
+        [name]: value
+      };
     });
   }
 
   function handleDialogColor(color) {
-    setDialogInput({
-      ...dialogInput,
-      color: color,
+    setDialogInput((prev) => {
+      return {
+        ...prev,
+        color: color
+      };
     });
   }
 
@@ -34,23 +38,25 @@ export default function NoteDialog(props) {
   return (
     <ClickAwayListener onClickAway={props.hideDialog}>
       <div className="note-dialog" style={{backgroundColor: dialogInput.color}}>
-        <div className="input-title">
+        <div className="note-dialog-title">
           <TextareaAutosize 
             placeholder="Title"
             onChange={handleInputChange}
             name="title"
             value={dialogInput.title}
             style={{backgroundColor: dialogInput.color}}
+            maxRows={15}
           />
         </div>
-        <div className="input-desc">
+        <div className="note-dialog-desc">
           <TextareaAutosize 
             placeholder="Take a note..."
             onChange={handleInputChange}
             name="desc"
             value={dialogInput.desc}
-            style={{backgroundColor: dialogInput.color, fontFamily: "'Arial', sans-serif", fontSize: '1rem'}}
+            style={{backgroundColor: dialogInput.color}}
             minRows={3}
+            maxRows={15}
           />
         </div>
         <p className="timestamp">Edited {props.note.date}</p>

@@ -16,9 +16,11 @@ export default function InputArea(props) {
   function handleInputChange(event) {
     const {name, value} = event.target;
 
-    setUserInput({
-      ...userInput,
-      [name]: value,
+    setUserInput((prev) => {
+      return {
+        ...prev,
+        [name]: value
+      };
     });
   }
 
@@ -31,10 +33,12 @@ export default function InputArea(props) {
   }
 
   function changeColor(color) {
-    setUserInput({
-      ...userInput,
-      color: color
-    })
+    setUserInput((prev) => {
+      return {
+        ...prev,
+        color: color
+      };
+    });
   }
 
   function closeArea() {

@@ -34,10 +34,10 @@ export default function Note(props) {
     <div>
       <div className="note-box" style={{backgroundColor: noteColor}} onClick={handleClick}>
         <div className="note-title">
-          <TextareaAutosize style={{backgroundColor: noteColor}} value={props.note.title} disabled />
+          <TextareaAutosize style={{backgroundColor: noteColor}} value={props.note.title} maxRows={20} disabled />
         </div>
         <div className="note-desc">
-          <TextareaAutosize style={{backgroundColor: noteColor}} value={props.note.desc} disabled />
+          <TextareaAutosize style={{backgroundColor: noteColor}} value={props.note.desc} maxRows={20} disabled />
         </div>
         <NoteButtons onDelete={deleteNote} color={noteColor} onColorChange={changeNoteColor} />
       </div>

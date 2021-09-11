@@ -11,6 +11,7 @@ export default function InputTitle(props) {
         placeholder="Title"
         value={props.userInput.title}
         style={{backgroundColor: props.userInput.color}}
+        maxRows={20}
       />
       <Tooltip
         title={props.isPinned ? 'Unpin note' : 'Pin note'} 

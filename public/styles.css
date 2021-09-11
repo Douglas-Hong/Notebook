@@ -87,7 +87,7 @@ textarea {
 
 .input-desc textarea {
   padding-top: 10px;
-  width: 475px;
+  width: 485px;
 }
 
 .input-buttons {
@@ -102,7 +102,7 @@ textarea {
   border: none;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 5px;
   padding: 10px 0;
   width: 100px;
@@ -190,15 +190,16 @@ textarea {
 
 .note-title textarea {
   color: #000;
-  font-weight: 600;
+  font-weight: 500;
   padding: 0 0 20px;
 }
 
 .note-desc textarea {
   color: #000;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   padding: 0;
+  width: 100%;
 }
 
 .note-buttons {
@@ -217,10 +218,24 @@ textarea {
   padding: 5px 10px 5px 20px;
   width: 500px;
   position: fixed;
-  top: 33%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
+}
+
+.note-dialog-title {
+  padding: 8px 0;
+}
+
+.note-dialog-title textarea {
+  font-size: 1.4rem;
+}
+
+.note-dialog-desc textarea {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  width: 485px;
 }
 
 #opacity-container {
@@ -247,7 +262,7 @@ textarea {
     width: 250px;
   }
 
-  .input-desc textarea {
+  .input-desc textarea, .note-dialog-desc textarea {
     width: 230px;
   }
 
