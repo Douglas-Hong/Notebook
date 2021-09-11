@@ -13,7 +13,7 @@ export default function InputDesc(props) {
         style={props.areaIsClicked 
           ? {backgroundColor: props.userInput.color, fontFamily: "'Roboto', sans-serif", fontSize: '1rem', paddingTop: '0'}
           : {backgroundColor: props.userInput.color}}
-        minRows={props.areaIsClicked ? '3' : '1'}
+        minRows={props.areaIsClicked ? 3 : 1}
         maxRows={20}
       />
     </div>
