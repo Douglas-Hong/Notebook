@@ -7,7 +7,9 @@ export default function App() {
   checkLocalStorage();
 
   const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')));
-  const [pinnedNotes, setPinnedNotes] = useState(JSON.parse(localStorage.getItem('pinnedNotes')));
+  const [pinnedNotes, setPinnedNotes] = useState(
+    JSON.parse(localStorage.getItem('pinnedNotes'))
+  );
   const [triggerOpacity, setTriggerOpacity] = useState(false);
 
   function addNote(note) {
@@ -80,15 +82,18 @@ export default function App() {
 
   return (
     <div>
-      <div id="opacity-container" style={{display: triggerOpacity ? 'block' : 'none'}}></div>
+      <div
+        id='opacity-container'
+        style={{ display: triggerOpacity ? 'block' : 'none' }}
+      ></div>
       <Navbar />
-      <div className="notebook-container">
+      <div className='notebook-container'>
         <InputArea onAdd={addNote} onPinnedAdd={addPinnedNote} />
-        <div className="notes-container">
-          {pinnedNotes.length > 0 && <h5 className="note-category">PINNED</h5>}
+        <div className='notes-container'>
+          {pinnedNotes.length > 0 && <h5 className='note-category'>PINNED</h5>}
           {pinnedNotes.map((note, index) => {
             return (
-              <Note 
+              <Note
                 note={note}
                 key={index}
                 index={index}
@@ -99,10 +104,12 @@ export default function App() {
               />
             );
           })}
-          {pinnedNotes.length > 0 && notes.length > 0 && <h5 className="note-category">OTHERS</h5>}
+          {pinnedNotes.length > 0 && notes.length > 0 && (
+            <h5 className='note-category'>OTHERS</h5>
+          )}
           {notes.map((note, index) => {
             return (
-              <Note 
+              <Note
                 note={note}
                 key={index}
                 index={index}

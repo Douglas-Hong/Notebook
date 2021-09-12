@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import NoteButtons from './NoteButtons';
 import NoteDialog from './NoteDialog';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
@@ -32,17 +32,41 @@ export default function Note(props) {
 
   return (
     <div>
-      <div className="note-box" style={{backgroundColor: noteColor}} onClick={handleClick}>
-        <div className="note-title">
-          <TextareaAutosize style={{backgroundColor: noteColor}} value={props.note.title} maxRows={15} disabled />
+      <div
+        className='note-box'
+        style={{ backgroundColor: noteColor }}
+        onClick={handleClick}
+      >
+        <div className='note-title'>
+          <TextareaAutosize
+            style={{ backgroundColor: noteColor }}
+            value={props.note.title}
+            maxRows={15}
+            disabled
+          />
         </div>
-        <div className="note-desc">
-          <TextareaAutosize style={{backgroundColor: noteColor}} value={props.note.desc} maxRows={15} disabled />
+        <div className='note-desc'>
+          <TextareaAutosize
+            style={{ backgroundColor: noteColor }}
+            value={props.note.desc}
+            maxRows={15}
+            disabled
+          />
         </div>
-        <NoteButtons onDelete={deleteNote} color={noteColor} onColorChange={changeNoteColor} />
+        <NoteButtons
+          onDelete={deleteNote}
+          color={noteColor}
+          onColorChange={changeNoteColor}
+        />
       </div>
-      {showDialog && <NoteDialog note={props.note} index={props.index} hideDialog={hideDialog} onResubmit={props.onResubmit}/>}
+      {showDialog && (
+        <NoteDialog
+          note={props.note}
+          index={props.index}
+          hideDialog={hideDialog}
+          onResubmit={props.onResubmit}
+        />
+      )}
     </div>
   );
 }
-

@@ -8,18 +8,18 @@ export default function InputArea(props) {
   const [userInput, setUserInput] = useState({
     title: '',
     desc: '',
-    color: '#fff'
+    color: '#fff',
   });
   const [isPinned, setIsPinned] = useState(false);
   const [areaIsClicked, setAreaIsClicked] = useState(false);
 
   function handleInputChange(event) {
-    const {name, value} = event.target;
+    const { name, value } = event.target;
 
     setUserInput((prev) => {
       return {
         ...prev,
-        [name]: value
+        [name]: value,
       };
     });
   }
@@ -36,7 +36,7 @@ export default function InputArea(props) {
     setUserInput((prev) => {
       return {
         ...prev,
-        color: color
+        color: color,
       };
     });
   }
@@ -47,7 +47,7 @@ export default function InputArea(props) {
     setUserInput({
       title: '',
       desc: '',
-      color: '#fff'
+      color: '#fff',
     });
   }
 
@@ -57,8 +57,8 @@ export default function InputArea(props) {
     if (userInput.title !== '' || userInput.desc !== '') {
       const timestampedInput = {
         ...userInput,
-        date: getDate()
-      }
+        date: getDate(),
+      };
 
       if (isPinned) {
         props.onPinnedAdd(timestampedInput);
@@ -70,7 +70,7 @@ export default function InputArea(props) {
       setUserInput({
         title: '',
         desc: '',
-        color: '#fff'
+        color: '#fff',
       });
     }
 
@@ -78,29 +78,33 @@ export default function InputArea(props) {
   }
 
   return (
-    <form className="input-box" autoComplete="off" style={{backgroundColor: userInput.color}}>
-      {areaIsClicked && 
-        <InputTitle 
+    <form
+      className='input-box'
+      autoComplete='off'
+      style={{ backgroundColor: userInput.color }}
+    >
+      {areaIsClicked && (
+        <InputTitle
           onChange={handleInputChange}
           onPin={handlePin}
           userInput={userInput}
           isPinned={isPinned}
         />
-      }
+      )}
       <InputDesc
         onExpand={expandArea}
         onChange={handleInputChange}
         userInput={userInput}
         areaIsClicked={areaIsClicked}
       />
-      {areaIsClicked && 
-        <InputButtons 
+      {areaIsClicked && (
+        <InputButtons
           onColorChange={changeColor}
           submitNote={submitNote}
           closeArea={closeArea}
           userInput={userInput}
         />
-      }
+      )}
     </form>
   );
 }

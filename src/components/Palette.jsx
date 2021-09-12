@@ -12,16 +12,14 @@ export default function Palette(props) {
   }
 
   return (
-    <div className="palette-container" onClick={handlePaletteClick}>
-      <Tooltip 
-        title="Change color" 
+    <div className='palette-container' onClick={handlePaletteClick}>
+      <Tooltip
+        title='Change color'
         content={<PaletteIcon />}
-        customStyle={
-          {
-            top: '31px',
-            left: '-39px'
-          }
-        }
+        customStyle={{
+          top: '31px',
+          left: '-39px',
+        }}
       />
       {paletteIsClicked && <Colors onColorChange={props.onColorChange} />}
     </div>

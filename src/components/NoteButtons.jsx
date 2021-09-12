@@ -8,9 +8,15 @@ export default function NoteButtons(props) {
   }
 
   return (
-    <div className="note-buttons">
+    <div className='note-buttons'>
       <Palette onColorChange={props.onColorChange} />
-      <button onClick={deleteNote} className="custom-button delete-button" style={{backgroundColor: props.color}}>Delete</button>
+      <button
+        onClick={deleteNote}
+        className='custom-button delete-button'
+        style={{ backgroundColor: props.color }}
+      >
+        Delete
+      </button>
     </div>
   );
 }

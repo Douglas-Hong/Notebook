@@ -4,7 +4,7 @@ export default function getDate() {
     day: 'numeric',
     year: 'numeric',
     hour: 'numeric',
-    minute: 'numeric'
+    minute: 'numeric',
   };
 
   return new Date().toLocaleString('en-US', options);
