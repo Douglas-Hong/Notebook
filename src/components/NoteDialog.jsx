@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Palette from './Palette';
+import Pin from './Pin';
 import getDate from '../getDate';
 
 export default function NoteDialog(props) {
   const [dialogInput, setDialogInput] = useState(props.note);
+  const [isPinned, setIsPinned] = useState(props.isPinned);
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -28,11 +30,18 @@ export default function NoteDialog(props) {
   }
 
   function resubmitNote() {
+    props.hideDialog();
     props.onResubmit(props.index, {
       ...dialogInput,
       date: getDate(),
     });
-    props.hideDialog();
+    if (props.isPinned !== isPinned) {
+      props.onPin(dialogInput);
+    }
+  }
+
+  function handlePin() {
+    setIsPinned((prev) => !prev);
   }
 
   return (
@@ -50,6 +59,7 @@ export default function NoteDialog(props) {
             style={{ backgroundColor: dialogInput.color }}
             maxRows={15}
           />
+          <Pin isPinned={isPinned} onClick={handlePin} />
         </div>
         <div className='note-dialog-desc'>
           <TextareaAutosize

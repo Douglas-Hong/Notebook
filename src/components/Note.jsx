@@ -2,14 +2,17 @@ import React, { useState, useEffect } from 'react';
 import NoteButtons from './NoteButtons';
 import NoteDialog from './NoteDialog';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import Pin from './Pin';
 
 export default function Note(props) {
   const [noteColor, setNoteColor] = useState(props.note.color);
   const [showDialog, setShowDialog] = useState(false);
+  const [isPinned, setIsPinned] = useState(props.isPinned);
 
   useEffect(() => {
     setNoteColor(props.note.color);
-  }, [props.note.color]);
+    setIsPinned(props.isPinned);
+  }, [props.note.color, props.isPinned]);
 
   function handleClick() {
     setShowDialog(true);
@@ -30,6 +33,12 @@ export default function Note(props) {
     props.onOpacityChange();
   }
 
+  function handlePin(note) {
+    props.onDelete(props.index);
+    props.onPinnedAdd(note);
+    setIsPinned((prev) => !prev);
+  }
+
   return (
     <div>
       <div
@@ -44,6 +53,15 @@ export default function Note(props) {
             maxRows={15}
             disabled
           />
+          <div className='note-pin'>
+            <Pin
+              isPinned={isPinned}
+              onClick={(event) => {
+                event.stopPropagation();
+                handlePin(props.note);
+              }}
+            />
+          </div>
         </div>
         <div className='note-desc'>
           <TextareaAutosize
@@ -65,6 +83,8 @@ export default function Note(props) {
           index={props.index}
           hideDialog={hideDialog}
           onResubmit={props.onResubmit}
+          isPinned={isPinned}
+          onPin={handlePin}
         />
       )}
     </div>

@@ -97,10 +97,12 @@ export default function App() {
                 note={note}
                 key={index}
                 index={index}
+                isPinned={true}
                 onDelete={deletePinnedNote}
                 onColorChange={handlePinnedColorChange}
                 onOpacityChange={handleOpacity}
                 onResubmit={editPinnedNote}
+                onPinnedAdd={addNote}
               />
             );
           })}
@@ -113,10 +115,12 @@ export default function App() {
                 note={note}
                 key={index}
                 index={index}
+                isPinned={false}
                 onDelete={deleteNote}
                 onColorChange={handleColorChange}
                 onOpacityChange={handleOpacity}
                 onResubmit={editNote}
+                onPinnedAdd={addPinnedNote}
               />
             );
           })}

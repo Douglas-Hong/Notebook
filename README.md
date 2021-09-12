@@ -23,6 +23,7 @@ the palette icon in order to select a color. This change brings more consistency
 must click the pin, "Submit", "Close", and "Delete" buttons in order to execute them.
 * You can scroll long notes without having to click on the notes first.
 * The note dialog has a shorter maximum height; this helps the user view other notes in the background.
+* You can delete a note in just one click; there is no need to click a button that reveals more options.
 
 ## Screenshots
 <p align="center">Home Page</p>
