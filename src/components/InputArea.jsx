@@ -54,25 +54,23 @@ export default function InputArea(props) {
   function submitNote(event) {
     event.preventDefault();
 
-    if (userInput.title !== '' || userInput.desc !== '') {
-      const timestampedInput = {
-        ...userInput,
-        date: getDate(),
-      };
+    const timestampedInput = {
+      ...userInput,
+      date: getDate(),
+    };
 
-      if (isPinned) {
-        props.onPinnedAdd(timestampedInput);
-        setIsPinned(false);
-      } else {
-        props.onAdd(timestampedInput);
-      }
-
-      setUserInput({
-        title: '',
-        desc: '',
-        color: '#fff',
-      });
+    if (isPinned) {
+      props.onPinnedAdd(timestampedInput);
+      setIsPinned(false);
+    } else {
+      props.onAdd(timestampedInput);
     }
+
+    setUserInput({
+      title: '',
+      desc: '',
+      color: '#fff',
+    });
 
     closeArea();
   }

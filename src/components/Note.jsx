@@ -48,8 +48,18 @@ export default function Note(props) {
       >
         <div className='note-title'>
           <TextareaAutosize
-            style={{ backgroundColor: noteColor }}
-            value={props.note.title}
+            style={{
+              backgroundColor: noteColor,
+              color:
+                props.note.title === '' && props.note.desc === ''
+                  ? '#828282'
+                  : '#000',
+            }}
+            value={
+              props.note.title === '' && props.note.desc === ''
+                ? 'Empty Note'
+                : props.note.title
+            }
             maxRows={15}
             disabled
           />
