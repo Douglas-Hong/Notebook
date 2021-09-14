@@ -28,8 +28,8 @@ must click the pin, "Submit", "Close", and "Delete" buttons in order to execute 
 ## Screenshots
 <p align="center">Home Page</p>
 
-![Home Page](https://i.imgur.com/GXg26V8.jpg)
+![Home Page](https://i.imgur.com/nSaSG2H.jpg)
 
 <p align="center">Editing a Note</p>
 
-![Editing a Note](https://i.imgur.com/sq6KuCo.jpg)
+![Editing a Note](https://i.imgur.com/mHue6lQ.jpg)
